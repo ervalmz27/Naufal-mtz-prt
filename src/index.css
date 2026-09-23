@@ -1,203 +1,174 @@
 @import "tailwindcss";
 
-/* ─── CSS custom properties ──────────────────────────────── */
 @layer base {
   :root {
-    --void:        #020210;
-    --abyss:       #04061a;
-    --midnight:    #07082e;
-    --twilight:    #12004a;
+    --bg-primary: #07090e;
+    --bg-secondary: #0c101a;
+    --bg-card: rgba(14, 20, 32, 0.7);
+    --bg-card-hover: rgba(20, 29, 48, 0.85);
+    
+    --border-subtle: rgba(255, 255, 255, 0.07);
+    --border-glow: rgba(6, 182, 212, 0.3);
+    
+    --accent-cyan: #06b6d4;
+    --accent-emerald: #10b981;
+    --accent-violet: #8b5cf6;
+    --accent-blue: #3b82f6;
+    --accent-amber: #f59e0b;
 
-    --gold:        #d4af37;
-    --gold-light:  #f5d060;
-    --gold-dim:    #8a6a10;
-    --silver:      #b8c4d8;
-    --crystal:     #6dd5fa;
-    --rune:        #8866ff;
-    --aurora-g:    #00ff88;
-    --aurora-b:    #00cfff;
-    --aurora-p:    #c060ff;
-    --flame:       #3366ff;
-    --emerald:     #00d97e;
-    --rose:        #ff4060;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
 
-    --font-fantasy: 'Cinzel', 'Times New Roman', serif;
-    --font-deco:    'Cinzel Decorative', serif;
-    --font-body:    'Inter', system-ui, sans-serif;
-    --font-alt:     'Raleway', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 
   html {
-    background: var(--void);
-    color: var(--silver);
-    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
     scroll-behavior: smooth;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  body { background: var(--void); overflow-x: hidden; }
+  body {
+    background-color: var(--bg-primary);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
 
-  /* Cursor – hidden in favour of custom canvas cursor */
-  * { cursor: none !important; }
-
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--void); }
+  /* Sleek modern 2026 scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #07090e;
+  }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(var(--rune), var(--crystal));
-    border-radius: 4px;
+    background: #1e293b;
+    border-radius: 9999px;
   }
-
-  ::selection { background: rgba(136, 102, 255, 0.35); color: #fff; }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
 }
 
-/* ─── Utility layer ──────────────────────────────────────── */
 @layer utilities {
-
-  /* Typography */
-  .font-fantasy  { font-family: var(--font-fantasy); }
-  .font-deco     { font-family: var(--font-deco); }
-  .font-alt      { font-family: var(--font-alt); }
-
-  /* Gradient text helpers */
-  .text-gold {
-    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dim));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  .font-sans {
+    font-family: var(--font-sans);
   }
-  .text-aurora {
-    background: linear-gradient(135deg, var(--aurora-g), var(--aurora-b), var(--aurora-p));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .text-crystal {
-    background: linear-gradient(135deg, var(--crystal), var(--rune));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .text-flame {
-    background: linear-gradient(135deg, #60aaff, var(--flame), #8844ff);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  .font-mono {
+    font-family: var(--font-mono);
   }
 
-  /* Glass morphism */
-  .glass {
-    background: rgba(4, 6, 26, 0.55);
-    border: 1px solid rgba(212, 175, 55, 0.14);
-    backdrop-filter: blur(18px) saturate(1.4);
-    -webkit-backdrop-filter: blur(18px) saturate(1.4);
-  }
-  .glass-light {
-    background: rgba(8, 8, 40, 0.40);
-    border: 1px solid rgba(109, 213, 250, 0.12);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+  /* 2026 Ambient Background Grid & Radial Glow */
+  .bg-tech-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   }
 
-  /* Glow helpers */
-  .glow-gold   { box-shadow: 0 0 24px rgba(212,175,55,0.4), 0 0 60px rgba(212,175,55,0.15); }
-  .glow-rune   { box-shadow: 0 0 24px rgba(136,102,255,0.45), 0 0 60px rgba(136,102,255,0.15); }
-  .glow-crystal{ box-shadow: 0 0 24px rgba(109,213,250,0.4), 0 0 60px rgba(109,213,250,0.12); }
-  .glow-aurora { box-shadow: 0 0 30px rgba(0,255,136,0.3), 0 0 80px rgba(0,207,255,0.15); }
-
-  /* Section layout */
-  .section-container {
-    max-width: 1240px;
-    margin-inline: auto;
-    padding-inline: 1.5rem;
-    position: relative;
-    z-index: 10;
+  .bg-radial-gradient {
+    background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.12) 0%, rgba(139, 92, 246, 0.05) 35%, transparent 70%);
   }
 
-  /* Rune text decoration */
-  .rune-underline {
-    position: relative;
-    display: inline-block;
+  /* Frosted Glassmorphism 2026 */
+  .glass-card {
+    background: rgba(13, 18, 30, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
-  .rune-underline::after {
-    content: '';
+
+  .glass-card-hover {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card-hover:hover {
+    background: rgba(18, 25, 42, 0.85);
+    border-color: rgba(6, 182, 212, 0.35);
+    box-shadow: 0 12px 36px -10px rgba(6, 182, 212, 0.15), 0 0 0 1px rgba(6, 182, 212, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .glass-capsule {
+    background: rgba(11, 15, 25, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  }
+
+  /* Gradient Text Helpers */
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #ffffff 10%, #67e8f9 60%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-emerald {
+    background: linear-gradient(135deg, #ffffff 10%, #6ee7b7 60%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #ffffff 15%, #c084fc 65%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-silver {
+    background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 60%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated border shimmer */
+  @keyframes border-beam {
+    0% { offset-distance: 0%; }
+    100% { offset-distance: 100%; }
+  }
+
+  /* Glowing orbs for background accents */
+  .glow-orb-cyan {
     position: absolute;
-    bottom: -4px; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+    z-index: 0;
   }
 
-  /* Animated border */
-  .magic-border {
-    position: relative;
-  }
-  .magic-border::before {
-    content: '';
+  .glow-orb-purple {
     position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, var(--gold), var(--rune), var(--crystal), var(--gold));
-    background-size: 300% 300%;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: borderRotate 4s linear infinite;
-  }
-  @keyframes borderRotate {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
   }
 
-  /* Particle float */
-  .float-particle {
-    animation: floatUp 3s ease-in-out infinite;
+  .glow-orb-emerald {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+    filter: blur(45px);
+    pointer-events: none;
+    z-index: 0;
   }
-  @keyframes floatUp {
-    0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
-    50%      { transform: translateY(-12px) rotate(10deg); opacity: 1; }
-  }
-
-  /* Rune spin */
-  .spin-slow { animation: spin 20s linear infinite; }
-  .spin-reverse { animation: spin 14s linear infinite reverse; }
-  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-  /* Shimmer */
-  .shimmer {
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
-    background-size: 200% 100%;
-    animation: shimmer 3s ease infinite;
-  }
-  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-
-  /* Pulse glow */
-  .pulse-gold {
-    animation: pulseGold 2.5s ease-in-out infinite;
-  }
-  @keyframes pulseGold {
-    0%,100% { box-shadow: 0 0 15px rgba(212,175,55,0.3); }
-    50%     { box-shadow: 0 0 40px rgba(212,175,55,0.6), 0 0 80px rgba(212,175,55,0.2); }
-  }
-
-  /* Section separators */
-  .rune-divider {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 0 auto;
-    max-width: 400px;
-  }
-  .rune-divider::before,
-  .rune-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent);
-  }
-}
-
-/* ─── Global canvas ──────────────────────────────────────── */
-canvas { display: block; }
-
-/* ─── Section base ───────────────────────────────────────── */
-.fantasy-section {
-  position: relative;
-  overflow: hidden;
-  padding: 8rem 1.5rem;
 }

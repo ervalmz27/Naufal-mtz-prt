@@ -1,39 +1,48 @@
-export interface NavLink { label: string; href: string; rune: string }
+export interface NavLink {
+  id: string
+  label: string
+  href: string
+}
 
 export interface Project {
   id: number
   title: string
   subtitle: string
   description: string
+  architecture?: string
+  metrics?: string
+  highlights?: string[]
   tech: string[]
-  color: string
-  accent: string
-  github: string
-  demo: string
-  category: string
+  category: 'security' | 'enterprise' | 'mobile' | 'platform'
+  categoryLabel: string
   image?: string
+  demo?: string
+  github?: string
+  featured?: boolean
 }
 
 export interface Skill {
   name: string
   level: number
-  color: string
+  category: 'Backend Architecture' | 'Security & OSINT' | 'Databases & Cloud' | 'Frontend & Mobile'
   icon: string
-  category: string
+  color?: string
+  featured?: boolean
 }
 
 export interface ExperienceItem {
-  year: string
+  period: string
   role: string
   company: string
+  location?: string
+  type?: string
   description: string
+  keyAchievements: string[]
   tags: string[]
 }
 
-export interface Achievement {
-  title: string
-  icon: string
-  description: string
-  year: string
-  rarity: 'legendary' | 'epic' | 'rare'
+export interface StatItem {
+  value: string
+  label: string
+  subtext?: string
 }

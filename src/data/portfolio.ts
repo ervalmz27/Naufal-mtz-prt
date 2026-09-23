@@ -1,195 +1,331 @@
-import type { NavLink, Project, Skill, ExperienceItem, Achievement } from '../types'
+import type { NavLink, Project, Skill, ExperienceItem, StatItem } from '../types'
 
 export const NAV_LINKS: NavLink[] = [
-  { label: 'Realm', href: '#home', rune: 'ᚠ' },
-  { label: 'Chronicle', href: '#about', rune: 'ᚢ' },
-  { label: 'Arsenal', href: '#skills', rune: 'ᚦ' },
-  { label: 'Portals', href: '#projects', rune: 'ᚩ' },
-  { label: 'Journey', href: '#experience', rune: 'ᚱ' },
-  { label: 'Legends', href: '#achievements', rune: 'ᚳ' },
-  { label: 'Summon', href: '#contact', rune: 'ᛟ' },
+  { id: 'overview', label: 'Overview', href: '#overview' },
+  { id: 'about', label: 'About', href: '#about' },
+  { id: 'projects', label: 'Projects', href: '#projects' },
+  { id: 'experience', label: 'Experience', href: '#experience' },
+  { id: 'skills', label: 'Skills', href: '#skills' },
+  { id: 'terminal', label: 'Terminal', href: '#terminal' },
+  { id: 'contact', label: 'Contact', href: '#contact' },
 ]
 
 export const HERO_DATA = {
-  greeting: 'Welcome, Traveller',
+  badge: 'Available for High-Impact Roles & Architecture Consulting',
   name: 'Naufal Mumtaz',
-  title: 'Backend Engineer & Fullstack Developer',
-  roles: ['Backend Engineer', 'Fullstack Developer', 'Mobile Developer', 'OSINT & Security Engineer'],
+  title: 'Senior Backend & Systems Engineer',
+  roles: [
+    'Senior Backend Engineer',
+    'OSINT & Security Architect',
+    'Full-Stack Developer',
+    'Enterprise Systems Builder',
+  ],
   description:
-    'Results-driven Backend Engineer with 5+ years of full-stack mastery across web, mobile, and enterprise platforms. I architect secure, scalable systems — from OSINT intelligence platforms to government apps.',
-  portraitAlt: 'Naufal Mumtaz',
+    'Engineering resilient backend systems, high-throughput microservices, and intelligence pipelines. Over 5 years of battle-tested experience delivering mission-critical platforms for enterprise banking, government infrastructure, and cyber threat intelligence.',
+  location: 'Bandung, Indonesia (UTC+7)',
+  email: 'naufalmumtaz27@gmail.com',
+  github: 'https://github.com/ervalmz27',
+  linkedin: 'https://www.linkedin.com/in/naufal-mumtaz-537a4a1bb',
+  telegram: 'https://t.me/Slay90',
 }
+
+export const STATS_DATA: StatItem[] = [
+  { value: '5+', label: 'Years Experience', subtext: 'In backend & full-stack systems' },
+  { value: '20+', label: 'Shipped Systems', subtext: 'Production grade deployments' },
+  { value: '8+', label: 'Companies Served', subtext: 'Enterprise, banking & tech startups' },
+  { value: '99.9%', label: 'Uptime Standard', subtext: 'Reliable, fault-tolerant design' },
+]
 
 export const ABOUT_DATA = {
+  headline: 'Engineering scalable backends with uncompromised security and performance.',
   paragraphs: [
-    'Born and raised in Bandung, Indonesia, I have been forging digital solutions since 2020 — from PHP and Laravel APIs to full-blown mobile apps in Swift and Flutter. My craft thrives at the intersection of security, performance, and elegant architecture.',
-    'My current focus is Cyber Security and Open Source Intelligence (OSINT): integrating threat intelligence APIs (Shodan, WhoisXML, DeHashed), building secure OpenVPN tunnels, and optimising databases for high-volume intelligence datasets.',
-    'When not engineering backend systems, I explore generative AI, contribute to enterprise low-code platforms, and build the occasional immersive 3D web experience. Every problem is a puzzle — every solution, a spell cast in code.',
+    'Based in Bandung, Indonesia, I have spent the last half-decade designing, deploying, and maintaining high-performance software systems. My engineering expertise spans scalable RESTful & gRPC APIs, enterprise relational databases, asynchronous job pipelines, and automated intelligence ingestion.',
+    'Currently specializing in Cyber Security and Open Source Intelligence (OSINT): architecting automated threat intelligence systems integrating Shodan, WhoisXML, DeHashed, and Wayback Machine, while deploying isolated OpenVPN proxy gateways and MobSF mobile security scanning.',
+    'I believe that the best backend code is invisible to the end user: ultra-fast response times, zero unexpected downtime, secure data transit, and clean, self-documenting architecture that scales effortlessly.',
   ],
-  stats: [
-    { value: '5+', label: 'Years of Craft' },
-    { value: '20+', label: 'Realms Forged' },
-    { value: '8+', label: 'Companies Served' },
-    { value: '∞', label: 'Curiosity' },
-  ],
-  timeline: [
-    { year: '2020', event: 'First Incantation', desc: 'Wrote my first Laravel RESTful API. The arcane arts of PHP began to reveal themselves.' },
-    { year: '2021', event: 'The Awakening', desc: 'Mobile development unlocked: multi-platform auth, real-time video calls, and healthcare algorithms.' },
-    { year: '2022', event: 'The Ascension', desc: 'Enterprise mastery at PT. Telkom Indonesia — low-code platforms, PostgreSQL, Oracle DB.' },
-    { year: '2023', event: 'The Expansion', desc: 'Web, mobile, and government apps — Bank BSI, Suquise Tower, and the IKN Capital City app.' },
-    { year: '2025', event: 'The Reckoning', desc: 'Backend Engineer for a Cyber Threat Intelligence & OSINT platform. Darkness hath been illuminated.' },
+  coreValues: [
+    {
+      title: 'Security-First Architecture',
+      desc: 'Zero-trust design, sanitized inputs, encrypted transport, and proactive vulnerability scanning.',
+      icon: 'Shield',
+    },
+    {
+      title: 'Performance & Scalability',
+      desc: 'Query optimization, connection pooling, Redis caching, and resilient asynchronous queue workers.',
+      icon: 'Zap',
+    },
+    {
+      title: 'Clean, Maintainable Code',
+      desc: 'Modular design patterns, comprehensive Swagger/OpenAPI documentation, and rigorous type safety.',
+      icon: 'Code',
+    },
+    {
+      title: 'Cross-Domain Fluency',
+      desc: 'Seamless orchestration between backend databases, mobile native bridges, and frontend interfaces.',
+      icon: 'Layers',
+    },
   ],
 }
-
-export const SKILLS: Skill[] = [
-  // Backend (primary)
-  { name: 'PHP / Yii2 / Laravel', level: 95, color: '#7c3aed', icon: '🐘', category: 'Backend' },
-  { name: 'Node.js / Nest.js', level: 88, color: '#68a063', icon: '🌿', category: 'Backend' },
-  { name: 'MySQL / PostgreSQL', level: 85, color: '#336791', icon: '🗄️', category: 'Backend' },
-  { name: 'Docker / DevOps', level: 78, color: '#2496ed', icon: '🐳', category: 'Backend' },
-  // Frontend
-  { name: 'React / Next.js', level: 85, color: '#61dafb', icon: '⚛', category: 'Frontend' },
-  { name: 'TypeScript', level: 88, color: '#3178c6', icon: '🔷', category: 'Frontend' },
-  { name: 'Angular / Vue.js', level: 80, color: '#dd0031', icon: '🔺', category: 'Frontend' },
-  // Mobile
-  { name: 'React Native / Flutter', level: 82, color: '#00d4ff', icon: '📱', category: 'Mobile' },
-  { name: 'Swift / Kotlin', level: 72, color: '#e87d0d', icon: '🍎', category: 'Mobile' },
-  // Security & OSINT
-  { name: 'OSINT / Threat Intel', level: 85, color: '#ff4060', icon: '🔍', category: 'Security & OSINT' },
-  { name: 'API Design / Swagger', level: 90, color: '#00d97e', icon: '📜', category: 'Security & OSINT' },
-  { name: 'OpenVPN / Networking', level: 75, color: '#8866ff', icon: '🔒', category: 'Security & OSINT' },
-]
 
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: 'Cyber Threat Intelligence Platform',
-    subtitle: 'OSINT & Security Intelligence System',
-    description: 'Full-scale threat intelligence platform integrating Shodan, WhoisXML, DeHashed, and Wayback Machine for automated domain, IP, and data breach investigations with APK security scanning via MobSF.',
-    tech: ['PHP / Yii2', 'MySQL', 'OpenVPN', 'MobSF', 'Swagger'],
-    color: '#ff4060',
-    accent: '#8866ff',
-    github: '#',
-    demo: '#',
+    title: 'Cyber Threat Intelligence & OSINT Platform',
+    subtitle: 'Automated Threat Reconnaissance & Mobile APK Security Scanner',
+    description:
+      'High-security threat intelligence engine automating multi-source OSINT investigations. Ingests data across Shodan, WhoisXML, DeHashed, and Wayback Machine, coupled with an isolated MobSF static security scanning engine.',
+    architecture:
+      'Engineered with PHP/Yii2 and MySQL, backed by automated background worker queues and secure OpenVPN proxy tunnels for anonymous reconnaissance. Authored 40+ Swagger OpenAPI endpoint specifications.',
+    metrics: '40+ OpenAPI Endpoints • Real-time Threat Feeds • Isolated Proxy Routing',
+    tech: ['PHP / Yii2', 'MySQL', 'OpenVPN', 'MobSF', 'Swagger', 'OSINT APIs'],
     category: 'security',
+    categoryLabel: 'Threat Intel & Security',
     image: '/projects/screenshot-prismkey.jpeg',
+    demo: '#',
+    github: '#',
+    featured: true,
   },
   {
     id: 2,
-    title: 'IKN Government Mobile App',
-    subtitle: "Indonesia's New Capital City App",
-    description: 'Official government service application for Indonesia\'s new capital city (IKN Nusantara), built with Swift UI and WebView integration for seamless citizen services.',
-    tech: ['Swift UI', 'WebView', 'iOS', 'Government APIs'],
-    color: '#d4af37',
-    accent: '#00d97e',
-    github: '#',
-    demo: '#',
-    category: 'government',
+    title: 'IKN Nusantara Government Mobile App',
+    subtitle: "Official Citizen Services Application for Indonesia's New Capital",
+    description:
+      'Official multi-service governmental mobile platform engineered for IKN Nusantara (Indonesia\'s new state capital), integrating digital public administration, news, civic reporting, and municipal services.',
+    architecture:
+      'Constructed with Swift UI and high-performance native WebView bridge for dynamic service modules, implementing robust government API authentication and low-latency state synchronization.',
+    metrics: 'National Capital Scale • Swift UI Native • Secure Citizen Authentication',
+    tech: ['Swift UI', 'iOS Native', 'WebView Bridge', 'REST API', 'Gov Gateway'],
+    category: 'mobile',
+    categoryLabel: 'Mobile & Government',
     image: '/projects/screenshot-ikn.jpeg',
+    demo: '#',
+    github: '#',
+    featured: true,
   },
   {
     id: 3,
     title: 'Bank BSI Risk Management System',
-    subtitle: 'Banking Operational Risk & Compliance',
-    description: 'Enterprise operational risk assessment and monitoring system with role-based approval workflows, advanced reporting, document management, and audit trail capabilities compliant with banking regulations.',
-    tech: ['PHP', 'MySQL', 'Laravel', 'Vue.js', 'Docker'],
-    color: '#00d97e',
-    accent: '#00ff88',
-    github: '#',
-    demo: '#',
+    subtitle: 'Enterprise Operational Risk Assessment & Compliance Engine',
+    description:
+      'Mission-critical banking operational risk platform built for PT Bank Syariah Indonesia (BSI), powering real-time risk tracking, audit logs, and regulatory compliance monitoring.',
+    architecture:
+      'Features granular Role-Based Access Control (RBAC), multi-stage approval matrices, audit logging for financial compliance, and encrypted reporting exports.',
+    metrics: 'Banking Regulatory Compliant • Multi-Tier Approval Workflow • Enterprise RBAC',
+    tech: ['PHP / Laravel', 'Vue.js', 'MySQL', 'Docker', 'Audit Trail'],
     category: 'enterprise',
+    categoryLabel: 'Enterprise & FinTech',
     image: '/projects/screenshot-bsi.jpeg',
+    demo: '#',
+    github: '#',
+    featured: true,
   },
   {
     id: 4,
-    title: 'Telkom Indonesia — Digicon Platform',
-    subtitle: 'Virtual Showcase & Analytics Platform',
-    description: 'Enterprise virtual showcase and interplay analytics platform built during internship at PT. Telkom Indonesia, featuring real-time visitor tracking, content management, and document repository.',
-    tech: ['Vue.js / Vuetify', 'Node.js', 'PostgreSQL', 'Oracle DB'],
-    color: '#8866ff',
-    accent: '#00d4ff',
-    github: '#',
-    demo: '#',
-    category: 'platform',
+    title: 'PT. Telkom Indonesia — Digicon Platform',
+    subtitle: 'Enterprise Virtual Showcase & Interplay Telemetry Analytics',
+    description:
+      'High-concurrency virtual showcase platform for enterprise clients of PT. Telkom Indonesia, tracking real-time visitor interactions, multimedia asset delivery, and session analytics.',
+    architecture:
+      'Designed dual-database architecture leveraging PostgreSQL and Oracle DB for distinct relational records and high-volume analytical event logs, backed by Node.js/Express.js microservices.',
+    metrics: 'PostgreSQL + Oracle DB Hybrid • Real-time Telemetry • Enterprise Low-Code',
+    tech: ['Vue.js / Vuetify', 'Node.js', 'Express.js', 'PostgreSQL', 'Oracle DB'],
+    category: 'enterprise',
+    categoryLabel: 'Enterprise Analytics',
     image: '/projects/screenshot-digicon.jpeg',
+    demo: '#',
+    github: '#',
   },
   {
     id: 5,
-    title: 'Suquise Tower Management',
-    subtitle: 'Smart Building Management Platform',
-    description: 'Complete web and mobile platform for building management: rental tracking, biometric attendance, private network security, and tenant services for a premium tower.',
-    tech: ['PHP / Yii2', 'React Native', 'MySQL', 'Biometric API'],
-    color: '#00cfff',
-    accent: '#8866ff',
-    github: '#',
-    demo: '#',
-    category: 'enterprise',
+    title: 'Suquise Tower Management Ecosystem',
+    subtitle: 'Smart Building Operations & Biometric Security Platform',
+    description:
+      'End-to-end building operations system coordinating lease contracts, visitor control, private network routing, and automated tenant requests for a commercial skyscraper.',
+    architecture:
+      'Seamless synchronization between a PHP/Yii2 backend, MySQL database, and React Native cross-platform mobile apps for property managers and tenants, interfaced with hardware biometric attendance scanners.',
+    metrics: 'Biometric Scanner Integration • Mobile Tenant App • Real-time Billing',
+    tech: ['PHP / Yii2', 'React Native', 'MySQL', 'Biometric API', 'REST API'],
+    category: 'platform',
+    categoryLabel: 'Smart Building & IoT',
     image: '/projects/screenshot-squizetower.jpeg',
+    demo: '#',
+    github: '#',
   },
   {
     id: 6,
-    title: 'White-Label Multi-Tenant App',
-    subtitle: 'Islamic Social Finance Platform',
-    description: 'White-label application architecture for an Islamic charity & social finance platform (Zakat, Infaq, Wakaf, Sodaqoh) with multi-tenant support, Midtrans payment gateway, and Google OAuth.',
-    tech: ['Angular 12', 'Node.js', 'Midtrans', 'Google OAuth'],
-    color: '#c060ff',
-    accent: '#8866ff',
-    github: '#',
-    demo: '#',
-    category: 'saas',
+    title: 'White-Label Social Finance SaaS',
+    subtitle: 'Multi-Tenant Islamic Philanthropy & Payment Gateway Engine',
+    description:
+      'Scalable white-label fintech platform handling Zakat, Infaq, and Wakaf charitable distributions across independent tenant organizations with branded sub-domains.',
+    architecture:
+      'Built with Angular 12 component architecture, Node.js backend, multi-tenant database partitioning, and seamless Midtrans payment gateway with automated webhooks and Google OAuth.',
+    metrics: 'Multi-Tenant Partitioning • Midtrans Webhooks • Google OAuth 2.0',
+    tech: ['Angular 12', 'Node.js', 'Midtrans Gateway', 'Google OAuth', 'TypeScript'],
+    category: 'platform',
+    categoryLabel: 'FinTech & Multi-Tenant',
     image: '/projects/screenshot-bigamalsaas.jpeg',
+    demo: '#',
+    github: '#',
   },
   {
     id: 7,
-    title: 'AIKON.id Laundry System',
-    subtitle: 'IoT-Connected Laundry Management',
-    description: 'Full-stack smart laundry management system with multi-outlet management, IoT machine monitoring, voucher & promo system, balance tracking, and monthly revenue analytics dashboard.',
-    tech: ['Next.js', 'Node.js', 'MySQL', 'IoT', 'Docker'],
-    color: '#00d4ff',
-    accent: '#00ff88',
-    github: '#',
-    demo: '#',
+    title: 'AIKON.id Smart Laundry System',
+    subtitle: 'IoT-Connected Multi-Branch Laundromat Platform',
+    description:
+      'Full-stack management software coordinating hundreds of commercial washing machines across multi-outlet networks, with customer mobile wallets and revenue analytics.',
+    architecture:
+      'Next.js web application interfaced with IoT hardware controllers for remote machine triggering, promo voucher validation, and real-time revenue telemetry.',
+    metrics: 'IoT Machine Telemetry • Multi-Outlet Dashboard • Next.js & Docker',
+    tech: ['Next.js', 'Node.js', 'MySQL', 'IoT Protocols', 'Docker'],
     category: 'platform',
+    categoryLabel: 'IoT & SaaS',
     image: '/projects/screenshot-aikonlaundry- web.jpeg',
+    demo: '#',
+    github: '#',
   },
 ]
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    year: '2025–Present',
-    role: 'Backend Engineer',
-    company: 'Cyber Threat Intelligence Platform (Confidential)',
-    description: 'Integrating OSINT APIs (Shodan, WhoisXML, DeHashed, Wayback Machine), building APK security scanning endpoints via MobSF, optimising complex MySQL queries for high-volume intelligence datasets, and configuring secure OpenVPN proxy routing. Authored 40+ Swagger/OpenAPI endpoint docs.',
-    tags: ['PHP / Yii2', 'MySQL', 'MobSF', 'OpenVPN', 'Swagger', 'OSINT'],
+    period: '2025 – Present',
+    role: 'Backend Engineer & Security Specialist',
+    company: 'Cyber Threat Intelligence Platform',
+    location: 'Bandung, Indonesia (Remote)',
+    type: 'Full-time',
+    description:
+      'Leading backend architecture and automated threat intelligence ingestion pipelines for an enterprise cybersecurity reconnaissance platform.',
+    keyAchievements: [
+      'Engineered automated connectors for Shodan, WhoisXML, DeHashed, and Wayback Machine APIs.',
+      'Constructed sandboxed MobSF APK static vulnerability scanning endpoints with automated PDF/JSON reporting.',
+      'Designed and deployed secure OpenVPN proxy routing infrastructure for anonymous scanning.',
+      'Authored 40+ comprehensive OpenAPI/Swagger interactive API endpoint specifications.',
+    ],
+    tags: ['PHP / Yii2', 'MySQL', 'MobSF', 'OpenVPN', 'Swagger', 'OSINT', 'Docker'],
   },
   {
-    year: '2025 Feb–Dec',
-    role: 'Frontend Developer',
-    company: 'PT. SAI (Sarana Amal Indonesia)',
-    description: 'Developed white-label multi-tenant application architecture, implemented Angular 12 component-based UI, integrated Midtrans payment gateway, and built Google OAuth authentication with responsive cross-brand design patterns.',
-    tags: ['Angular 12', 'Midtrans', 'Google OAuth', 'TypeScript', 'Multi-Tenant'],
+    period: '2025 (Feb – Dec)',
+    role: 'Frontend & SaaS Architect',
+    company: 'PT. Sarana Amal Indonesia (PT. SAI)',
+    location: 'Bandung, Indonesia',
+    type: 'Contract',
+    description:
+      'Developed white-label multi-tenant digital finance platform for social crowdfunding and charitable institutions across Indonesia.',
+    keyAchievements: [
+      'Architected modular Angular 12 component system supporting multi-brand theming and custom domains.',
+      'Integrated Midtrans payment gateway and automated webhook reconciliation for bank transfers and QRIS.',
+      'Implemented secure Google OAuth 2.0 authentication and state management with RxJS.',
+    ],
+    tags: ['Angular 12', 'Midtrans Gateway', 'Google OAuth', 'TypeScript', 'Multi-Tenant'],
   },
   {
-    year: '2023–2024',
-    role: 'Web & Mobile Developer',
+    period: '2023 – 2024',
+    role: 'Web & Mobile Systems Developer',
     company: 'CV. Kreasitech',
-    description: "Built Bank BSI operational risk management system with role-based approval workflows. Engineered Suquise Tower full-stack management platform with biometric attendance. Developed the IKN Government app in Swift UI for Indonesia's new capital city.",
-    tags: ['PHP', 'Swift UI', 'React Native', 'MySQL', 'Laravel', 'Government'],
+    location: 'Bandung, Indonesia',
+    type: 'Full-time',
+    description:
+      'Engineered enterprise web platforms and native mobile applications across government, banking, and real-estate sectors.',
+    keyAchievements: [
+      'Delivered Bank BSI Operational Risk Management system adhering to Indonesian banking regulations.',
+      'Developed the official IKN Nusantara government citizen services mobile app on Swift UI.',
+      'Engineered Suquise Tower smart building platform including biometric device integration.',
+    ],
+    tags: ['PHP / Laravel', 'Swift UI', 'React Native', 'MySQL', 'Vue.js', 'Government APIs'],
   },
   {
-    year: '2022',
-    role: 'Full Stack Developer',
+    period: '2022',
+    role: 'Full-Stack Developer',
     company: 'PT. Telkom Indonesia',
-    description: 'Architected low-code/no-code business solutions for enterprise clients using Vuetify + Node.js/Express.js. Configured PostgreSQL and Oracle DB systems and led cross-functional technical discussions on system architecture.',
-    tags: ['Node.js', 'Vue.js / Vuetify', 'PostgreSQL', 'Oracle DB', 'Enterprise'],
+    location: 'Bandung, Indonesia',
+    type: 'Internship / Project',
+    description:
+      'Developed low-code enterprise web solutions and data-intensive showcase applications for Indonesia\'s premier telecommunications enterprise.',
+    keyAchievements: [
+      'Architected virtual showcase analytics platform leveraging Node.js/Express and Vue.js.',
+      'Configured and optimized relational data pipelines between PostgreSQL and Oracle DB systems.',
+      'Collaborated directly with enterprise architects to establish CI/CD best practices.',
+    ],
+    tags: ['Node.js', 'Vue.js / Vuetify', 'PostgreSQL', 'Oracle DB', 'Enterprise CI/CD'],
   },
 ]
 
-export const ACHIEVEMENTS: Achievement[] = [
-  { title: 'OSINT Platform Architect', icon: '🔍', description: 'Engineered a full-scale Cyber Threat Intelligence & OSINT platform integrating Shodan, WhoisXML, DeHashed, and MobSF.', year: '2025', rarity: 'legendary' },
-  { title: 'Telkom Indonesia Alumnus', icon: '🏛️', description: 'Contributed to enterprise low-code solutions and PostgreSQL/Oracle DB architecture at PT. Telkom Indonesia.', year: '2022', rarity: 'legendary' },
-  { title: 'Government App Hero', icon: '🇮🇩', description: 'Built the official mobile app for IKN Nusantara — Indonesia\'s new capital city — on Swift UI.', year: '2024', rarity: 'epic' },
-  { title: 'Banking System Engineer', icon: '🏦', description: 'Delivered the Bank BSI operational risk management system, compliant with national banking regulations.', year: '2023', rarity: 'epic' },
-  { title: '5+ Years Full-Stack', icon: '⚔️', description: 'Over five years of continuous full-stack mastery spanning PHP, TypeScript, Swift, Kotlin, Flutter and more.', year: '2025', rarity: 'rare' },
-  { title: 'Multi-Platform Wizard', icon: '📱', description: 'Shipped production apps on iOS, Android, and Web — across 8+ companies in diverse industries.', year: '2024', rarity: 'rare' },
+export const SKILLS: Skill[] = [
+  // Backend Architecture
+  { name: 'PHP (Laravel / Yii2)', level: 95, category: 'Backend Architecture', icon: 'server', featured: true },
+  { name: 'Node.js / Express / NestJS', level: 90, category: 'Backend Architecture', icon: 'cpu', featured: true },
+  { name: 'RESTful API & Swagger / OpenAPI', level: 94, category: 'Backend Architecture', icon: 'file-code', featured: true },
+  { name: 'Microservices & Worker Queues', level: 86, category: 'Backend Architecture', icon: 'layers', featured: true },
+
+  // Security & OSINT
+  { name: 'OSINT Automation (Shodan / Whois)', level: 92, category: 'Security & OSINT', icon: 'shield', featured: true },
+  { name: 'Mobile APK Security (MobSF)', level: 88, category: 'Security & OSINT', icon: 'smartphone', featured: true },
+  { name: 'OpenVPN & Proxy Tunneling', level: 85, category: 'Security & OSINT', icon: 'lock', featured: true },
+  { name: 'Data Breach Recon (DeHashed)', level: 89, category: 'Security & OSINT', icon: 'search', featured: false },
+
+  // Databases & Cloud
+  { name: 'MySQL & Query Optimization', level: 92, category: 'Databases & Cloud', icon: 'database', featured: true },
+  { name: 'PostgreSQL & Oracle DB', level: 85, category: 'Databases & Cloud', icon: 'hard-drive', featured: true },
+  { name: 'Docker & Containerization', level: 84, category: 'Databases & Cloud', icon: 'box', featured: true },
+  { name: 'Linux Server & Nginx Tuning', level: 88, category: 'Databases & Cloud', icon: 'terminal', featured: true },
+
+  // Frontend & Mobile
+  { name: 'TypeScript & JavaScript', level: 90, category: 'Frontend & Mobile', icon: 'code', featured: true },
+  { name: 'React / Next.js', level: 86, category: 'Frontend & Mobile', icon: 'layout', featured: true },
+  { name: 'Swift UI (iOS Native)', level: 80, category: 'Frontend & Mobile', icon: 'apple', featured: true },
+  { name: 'React Native & Flutter', level: 82, category: 'Frontend & Mobile', icon: 'smartphone', featured: false },
 ]
+
+export const TERMINAL_COMMANDS: Record<string, string | { text: string; color?: string }[]> = {
+  help: [
+    { text: 'Available commands:', color: '#06b6d4' },
+    { text: '  whoami          - View engineer identity and background' },
+    { text: '  skills          - Inspect core technical stack & proficiencies' },
+    { text: '  osint           - Inspect OSINT & security tool integrations' },
+    { text: '  projects        - List notable production enterprise deployments' },
+    { text: '  status          - Query real-time availability and WIB timezone' },
+    { text: '  contact         - Get direct contact channels (email, telegram)' },
+    { text: '  clear           - Clear terminal history' },
+  ],
+  whoami: [
+    { text: 'NAME:        Naufal Mumtaz', color: '#10b981' },
+    { text: 'ROLE:        Senior Backend & Systems Engineer' },
+    { text: 'LOCATION:    Bandung, Indonesia (UTC+7)' },
+    { text: 'EXPERIENCE:  5+ Years in High-Performance Backend & Fullstack' },
+    { text: 'SPECIALTY:   OSINT Intelligence, Enterprise Architecture, API Design' },
+  ],
+  skills: [
+    { text: 'CORE BACKEND:      PHP (Laravel, Yii2), Node.js (Express, NestJS), Python', color: '#8b5cf6' },
+    { text: 'DATABASES:         MySQL, PostgreSQL, Oracle DB, Redis' },
+    { text: 'SECURITY & OSINT:  Shodan, WhoisXML, DeHashed, MobSF, OpenVPN' },
+    { text: 'DEVOPS & CLOUD:    Docker, Nginx, Linux Server Administration, CI/CD' },
+    { text: 'MOBILE & CLIENT:   Swift UI (iOS), React / Next.js, React Native, TypeScript' },
+  ],
+  osint: [
+    { text: '[+] Initializing threat intelligence recon sandbox...', color: '#06b6d4' },
+    { text: '[+] Shodan API:      Connected (Host recon & banner parsing active)' },
+    { text: '[+] WhoisXML API:    Connected (Domain registrant & DNS records)' },
+    { text: '[+] DeHashed API:    Connected (Credential exposure verification)' },
+    { text: '[+] MobSF Static:    Online (Automated APK security scan pipeline)' },
+    { text: '[+] Proxy Routing:   OpenVPN tunnel active / IP disguised' },
+    { text: '[✓] Status: All security pipelines operational with 40+ endpoints.', color: '#10b981' },
+  ],
+  projects: [
+    { text: '1. Cyber Threat Intelligence Platform (PHP/Yii2, MobSF, OpenVPN, MySQL)', color: '#06b6d4' },
+    { text: '2. IKN Nusantara Citizen Mobile App (Swift UI, iOS Native, Gov APIs)' },
+    { text: '3. Bank BSI Risk Management Platform (PHP/Laravel, Vue.js, FinTech Compliance)' },
+    { text: '4. PT. Telkom Indonesia Digicon Platform (PostgreSQL, Oracle DB, Node.js)' },
+    { text: '5. Suquise Tower Management System (PHP/Yii2, React Native, Biometrics)' },
+  ],
+  status: [
+    { text: 'SYSTEM STATUS:  ● OPERATIONAL (100% HEALTH)', color: '#10b981' },
+    { text: 'AVAILABILITY:   Open to Senior Roles, Consulting & High-Impact Contracts' },
+    { text: 'CURRENT TIME:   Bandung, Indonesia (WIB / UTC+7)' },
+    { text: 'WORK FORMAT:    Remote / Hybrid / On-site' },
+  ],
+  contact: [
+    { text: 'EMAIL:      naufalmumtaz27@gmail.com', color: '#06b6d4' },
+    { text: 'GITHUB:     https://github.com/ervalmz27' },
+    { text: 'LINKEDIN:   https://www.linkedin.com/in/naufal-mumtaz-537a4a1bb' },
+    { text: 'TELEGRAM:   https://t.me/Slay90 (@Slay90)' },
+  ],
+}
